@@ -49,7 +49,10 @@ function ProductList() {
 
   return (
     <div>
-      <h1>Hello from Product List</h1>
+      <h1>These are the selected products</h1>
+      {data.nodes.map((item) => {
+        return <p key={item.id}>{item.title}</p>;
+      })}
     </div>
   );
 }
