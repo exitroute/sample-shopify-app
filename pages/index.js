@@ -25,8 +25,8 @@ function Index() {
         onSelection={(resources) => handleSelection(resources)}
       />
 
-      <Layout>
-        {emptyState ? (
+      {emptyState ? (
+        <Layout>
           <EmptyState
             heading="Manage your inventory transfers"
             action={{
@@ -37,10 +37,10 @@ function Index() {
           >
             <p>Select Products</p>
           </EmptyState>
-        ) : (
-          <ProductList />
-        )}
-      </Layout>
+        </Layout>
+      ) : (
+        <ProductList />
+      )}
     </Page>
   );
 }
