@@ -7,6 +7,7 @@ const next = require("next");
 const { default: createShopifyAuth } = require("@shopify/koa-shopify-auth");
 const { verifyRequest } = require("@shopify/koa-shopify-auth");
 const session = require("koa-session");
+const koaBody = require("koa-body");
 
 dotenv.config();
 const { default: graphQLProxy } = require("@shopify/koa-shopify-graphql-proxy");
@@ -22,12 +23,28 @@ const { SHOPIFY_API_SECRET_KEY, SHOPIFY_API_KEY } = process.env;
 const server = new Koa();
 const router = new KoaRouter();
 
+const products = [
+  {
+    image1: "test",
+  },
+];
+
 router.get("/api/products", async (ctx) => {
   try {
     ctx.body = {
       status: "success",
-      data: "Hello, this is from the public API",
+      data: products,
     };
+  } catch (error) {
+    console.log(error);
+  }
+});
+
+router.post("/api/products", koaBody(), async (ctx) => {
+  try {
+    const body = ctx.request.body;
+    products.push(body);
+    ctx.body = "Item Added";
   } catch (error) {
     console.log(error);
   }
