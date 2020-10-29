@@ -17,7 +17,7 @@ function handler() {
   };
 
   fetch(
-    "https://3e37da5211d8.ngrok.io/api/products?shop=shop=sample-app-exitroute.myshopify.com"
+    "https://26d1a892e054.ngrok.io/api/products?shop=shop=sample-app-exitroute.myshopify.com"
   )
     .then((res) => res.json())
     .then((data) => {
