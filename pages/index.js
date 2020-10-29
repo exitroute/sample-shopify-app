@@ -17,6 +17,12 @@ function Index() {
 
   return (
     <Page>
+      <TitleBar
+        primaryAction={{
+          content: "Select New Products",
+          onAction: () => setModal({ open: true }),
+        }}
+      />
       <ResourcePicker
         resourceType="Product"
         showVariants={false}
