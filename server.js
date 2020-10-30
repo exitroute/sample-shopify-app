@@ -23,11 +23,7 @@ const { SHOPIFY_API_SECRET_KEY, SHOPIFY_API_KEY } = process.env;
 const server = new Koa();
 const router = new KoaRouter();
 
-const products = [
-  {
-    image1: "test",
-  },
-];
+var products = [];
 
 router.get("/api/products", async (ctx) => {
   try {
