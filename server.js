@@ -46,6 +46,15 @@ router.post("/api/products", koaBody(), async (ctx) => {
   }
 });
 
+router.delete("/api/products", koaBody(), async (ctx) => {
+  try {
+    products = [];
+    ctx.body = "All items deleted";
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 server.use(cors({ origin: "*" }));
 server.use(router.allowedMethods());
 server.use(router.routes());
