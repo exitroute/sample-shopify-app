@@ -45,8 +45,6 @@ function ProductList() {
   if (loading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
 
-  console.log("this is data", data);
-
   return (
     <Card>
       <ResourceList
